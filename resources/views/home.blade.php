@@ -5,6 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                @if(session('response'))
+                    <div class="alert alert-success">{{ session('response') }}</div>
+                @endif
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -14,7 +17,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ url('/message') }}">
                         @csrf
 
                         <div class="form-group">
